@@ -1,0 +1,46 @@
+{
+  "app": {
+    "name": "QuanClean",
+    "tagline": "Clean smarter, not harder"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "scan": "Scan",
+    "clean": "Clean",
+    "settings": "Settings",
+    "about": "About"
+  },
+  "scan": {
+    "title": "Scan Your Disk",
+    "start": "Start Scan",
+    "scanning": "Scanning...",
+    "complete": "Scan Complete",
+    "found": "Found {{size}} of cleanable files",
+    "categories": {
+      "temp": "Temporary Files",
+      "cache": "Application Cache",
+      "logs": "Log Files",
+      "duplicates": "Duplicate Files",
+      "residue": "App Residue"
+    }
+  },
+  "clean": {
+    "title": "Clean Selected",
+    "confirm": "Are you sure you want to delete {{size}} of files?",
+    "cleaning": "Cleaning...",
+    "complete": "Cleanup Complete",
+    "freed": "Freed {{size}} of disk space",
+    "cancel": "Cancel",
+    "proceed": "Clean Now"
+  },
+  "common": {
+    "yes": "Yes",
+    "no": "No",
+    "cancel": "Cancel",
+    "close": "Close",
+    "save": "Save",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success"
+  }
+}

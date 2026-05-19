@@ -1,0 +1,46 @@
+{
+  "app": {
+    "name": "QuanClean",
+    "tagline": "更聪明地清理，而不是更费力"
+  },
+  "nav": {
+    "dashboard": "概览",
+    "scan": "扫描",
+    "clean": "清理",
+    "settings": "设置",
+    "about": "关于"
+  },
+  "scan": {
+    "title": "扫描磁盘",
+    "start": "开始扫描",
+    "scanning": "扫描中...",
+    "complete": "扫描完成",
+    "found": "发现 {{size}} 可清理文件",
+    "categories": {
+      "temp": "临时文件",
+      "cache": "应用缓存",
+      "logs": "日志文件",
+      "duplicates": "重复文件",
+      "residue": "应用残留"
+    }
+  },
+  "clean": {
+    "title": "清理所选",
+    "confirm": "确定要删除 {{size}} 文件吗？",
+    "cleaning": "清理中...",
+    "complete": "清理完成",
+    "freed": "已释放 {{size}} 磁盘空间",
+    "cancel": "取消",
+    "proceed": "立即清理"
+  },
+  "common": {
+    "yes": "是",
+    "no": "否",
+    "cancel": "取消",
+    "close": "关闭",
+    "save": "保存",
+    "loading": "加载中...",
+    "error": "发生错误",
+    "success": "成功"
+  }
+}
