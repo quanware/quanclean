@@ -51,13 +51,13 @@ cargo build -p quanclean-cli --release  # CLI release
 
 ## Current Status
 
-- [ ] Project scaffold (Tauri + Rust workspace)
-- [ ] Core: temp file scanner (Windows)
-- [ ] Core: temp file scanner (macOS)
-- [ ] Core: cache scanner
-- [ ] Core: duplicate file detector
-- [ ] CLI: scan command
-- [ ] CLI: clean command
-- [ ] GUI: dashboard
-- [ ] GUI: treemap visualization
-- [ ] i18n: zh-CN (in progress)
+- [x] Project scaffold (Tauri + Rust workspace)
+- [x] Core: temp file scanner (Windows)
+- [x] Core: temp file scanner (macOS)
+- [x] Core: cache scanner
+- [x] Core: duplicate file detector
+- [x] CLI: scan command
+- [x] CLI: clean command
+- [x] GUI: dashboard
+- [x] GUI: treemap visualization
+- [x] i18n: zh-CN

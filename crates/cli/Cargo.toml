@@ -1,0 +1,22 @@
+[package]
+name = "quanclean-cli"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Command-line interface for QuanClean disk cleaner"
+default-run = "quanclean"
+
+[[bin]]
+name = "quanclean"
+path = "src/main.rs"
+
+[dependencies]
+quanclean-core = { path = "../core" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+clap = { version = "4", features = ["derive", "color"] }
+indicatif = "0.17"
+console = "0.15"
+humansize = "2"

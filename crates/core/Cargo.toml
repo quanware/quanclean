@@ -1,0 +1,23 @@
+[package]
+name = "quanclean-core"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Platform-agnostic disk cleaning logic for QuanClean"
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+walkdir = { workspace = true }
+sha2 = { workspace = true }
+hex = { workspace = true }
+chrono = { workspace = true }
+log = { workspace = true }
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3", features = ["winbase", "winerror", "fileapi", "handleapi"] }
+
+[dev-dependencies]
+tempfile = "3"

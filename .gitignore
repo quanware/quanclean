@@ -141,3 +141,15 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Rust / Cargo
+target/
+Cargo.lock
+
+# Tauri build output
+src-tauri/target/
+
+# Generated (reproducible via pnpm gen-icons)
+src-tauri/icons/*.png
+src-tauri/icons/*.ico
+src-tauri/icons/*.icns

@@ -1,0 +1,159 @@
+.page {
+  padding: 32px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.scanButton {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 9px 20px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+
+.scanButton:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.scanButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cleanButton {
+  background: var(--color-danger);
+  color: #fff;
+  border: none;
+  padding: 9px 20px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+
+.cleanButton:hover:not(:disabled) {
+  background: var(--color-danger-hover);
+}
+
+.cleanButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.resetButton {
+  background: var(--color-surface-2);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  padding: 9px 16px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  transition: background 0.15s;
+}
+
+.resetButton:hover {
+  background: var(--color-border);
+}
+
+.errorBanner {
+  background: rgba(247, 85, 85, 0.12);
+  border: 1px solid var(--color-danger);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  color: var(--color-danger);
+  font-size: 13px;
+}
+
+.successBanner {
+  background: rgba(76, 175, 136, 0.12);
+  border: 1px solid var(--color-success);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  color: var(--color-success);
+  font-size: 13px;
+}
+
+.cleanErrors {
+  color: var(--color-warning);
+}
+
+.scanningState {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--color-text-muted);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.results {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.emptyState,
+.idleState {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--color-text-muted);
+  font-size: 16px;
+}
+
+.emptySubtext,
+.idleSubtext {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  opacity: 0.6;
+}

@@ -1,0 +1,29 @@
+[package]
+name = "quanclean-tauri"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Tauri backend for QuanClean"
+
+[lib]
+name = "quanclean_tauri_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "quanclean-tauri"
+path = "src/main.rs"
+
+[dependencies]
+quanclean-core = { path = "../crates/core" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tauri = { version = "2", features = [] }
+tokio = { workspace = true }
+log = { workspace = true }
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]
