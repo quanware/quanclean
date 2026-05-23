@@ -1,5 +1,6 @@
 {
   "name": "quanclean",
+  "packageManager": "pnpm@11.1.3",
   "private": true,
   "version": "0.1.0",
   "type": "module",
