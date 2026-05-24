@@ -1,6 +1,5 @@
 use anyhow::Result;
 use clap::Args;
-use console::style;
 use indicatif::{ProgressBar, ProgressStyle};
 use quanclean_core::cleaner;
 use quanclean_core::duplicates;
