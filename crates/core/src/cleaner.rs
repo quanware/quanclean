@@ -116,7 +116,9 @@ mod tests {
     fn clean_filtered_only_deletes_matching() {
         let tmp = TempDir::new().unwrap();
         let e_temp = make_entry(tmp.path(), "a.tmp", b"temp");
-        let e_cache = make_entry(tmp.path(), "b.cache", b"cache data");
+        let cache_path = tmp.path().join("b.cache");
+        fs::write(&cache_path, b"cache data").unwrap();
+        let e_cache = FileEntry::new(cache_path, 10, ScanCategory::Cache);
 
         let all = vec![e_temp, e_cache];
         let result = clean_filtered(&all, |e| e.category == ScanCategory::Temp).unwrap();
