@@ -22,7 +22,6 @@ export default function ScanPage() {
     setShowConfirm(true);
     await startClean(async () => {
       return new Promise((resolve) => {
-        // resolved via ConfirmDialog callbacks
         (window as unknown as { __cleanResolve?: (v: boolean) => void }).__cleanResolve = resolve;
       });
     });
@@ -47,7 +46,6 @@ export default function ScanPage() {
     setShowConfirm(false);
   };
 
-
   return (
     <div className={styles.page}>
       <header className={styles.header}>
@@ -57,7 +55,7 @@ export default function ScanPage() {
             <p className={styles.subtitle}>
               {t("scan.found", { size: formatBytes(scanResult.total_size) })}
               {" · "}
-              {formatCount(scanResult.entries.length)} {t("scan.categories.temp").toLowerCase()} files
+              {formatCount(scanResult.entries.length)} {t("scan.files")}
             </p>
           )}
         </div>
@@ -99,7 +97,9 @@ export default function ScanPage() {
         <div className={styles.successBanner}>
           {t("clean.freed", { size: formatBytes(cleanResult.bytes_freed) })}
           {cleanResult.errors.length > 0 && (
-            <span className={styles.cleanErrors}> ({cleanResult.errors.length} errors)</span>
+            <span className={styles.cleanErrors}>
+              {" "}({t("clean.errors", { count: cleanResult.errors.length })})
+            </span>
           )}
         </div>
       )}
@@ -125,14 +125,14 @@ export default function ScanPage() {
       {scanResult && scanResult.entries.length === 0 && !isScanning && (
         <div className={styles.emptyState}>
           <p>{t("scan.complete")}</p>
-          <p className={styles.emptySubtext}>Nothing to clean — your disk is tidy!</p>
+          <p className={styles.emptySubtext}>{t("scan.tidy")}</p>
         </div>
       )}
 
       {scanStatus === "idle" && !cleanResult && (
         <div className={styles.idleState}>
           <p>{t("scan.title")}</p>
-          <p className={styles.idleSubtext}>Press "Start Scan" to analyze your disk.</p>
+          <p className={styles.idleSubtext}>{t("scan.idle")}</p>
         </div>
       )}
 

@@ -25,7 +25,7 @@ export default function CategoryList({ result, selectedCategory, onSelectCategor
           className={`${styles.filterChip} ${selectedCategory === null ? styles.active : ""}`}
           onClick={() => onSelectCategory(null)}
         >
-          All ({result.entries.length})
+          {t("scan.all")} ({result.entries.length})
         </button>
         {CATEGORIES.map((cat) => {
           const count = result.entries.filter((e) => e.category === cat).length;
@@ -51,7 +51,7 @@ export default function CategoryList({ result, selectedCategory, onSelectCategor
         ))}
         {displayedEntries.length > 500 && (
           <div className={styles.overflow}>
-            +{displayedEntries.length - 500} more files
+            {t("common.more_files", { count: displayedEntries.length - 500 })}
           </div>
         )}
       </div>

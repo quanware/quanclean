@@ -9,8 +9,8 @@ const LANGUAGES = [
 ];
 
 export default function SettingsPage() {
-  const { t } = useTranslation();
-  const [lang, setLang] = useState(i18n.language);
+  const { t, i18n: i18nHook } = useTranslation();
+  const [lang, setLang] = useState(i18nHook.language);
 
   const handleLangChange = (code: string) => {
     setLang(code);
@@ -22,12 +22,12 @@ export default function SettingsPage() {
       <h1 className={styles.title}>{t("nav.settings")}</h1>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>Language</h2>
+        <h2 className={styles.sectionTitle}>{t("settings.language")}</h2>
         <div className={styles.langOptions}>
           {LANGUAGES.map(({ code, label }) => (
             <button
               key={code}
-              className={`${styles.langOption} ${lang === code ? styles.active : ""}`}
+              className={`${styles.langOption} ${lang === code || (code === "zh-CN" && lang.startsWith("zh")) ? styles.active : ""}`}
               onClick={() => handleLangChange(code)}
             >
               {label}
@@ -37,11 +37,13 @@ export default function SettingsPage() {
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>About</h2>
+        <h2 className={styles.sectionTitle}>{t("settings.about")}</h2>
         <p className={styles.aboutText}>
           <strong>{t("app.name")}</strong> — {t("app.tagline")}
         </p>
-        <p className={styles.aboutMeta}>Version 0.1.0 · MIT License · Open Source</p>
+        <p className={styles.aboutMeta}>
+          {t("settings.version", { version: "0.2.0" })} · {t("settings.license")}
+        </p>
       </section>
     </div>
   );

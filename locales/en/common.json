@@ -16,6 +16,10 @@
     "scanning": "Scanning...",
     "complete": "Scan Complete",
     "found": "Found {{size}} of cleanable files",
+    "idle": "Press \"Start Scan\" to analyze your disk.",
+    "tidy": "Nothing to clean — your disk is tidy!",
+    "files": "files",
+    "all": "All",
     "categories": {
       "temp": "Temporary Files",
       "cache": "Application Cache",
@@ -31,7 +35,14 @@
     "complete": "Cleanup Complete",
     "freed": "Freed {{size}} of disk space",
     "cancel": "Cancel",
-    "proceed": "Clean Now"
+    "proceed": "Clean Now",
+    "errors": "{{count}} errors"
+  },
+  "settings": {
+    "language": "Language",
+    "about": "About",
+    "version": "Version {{version}}",
+    "license": "MIT License · Open Source"
   },
   "common": {
     "yes": "Yes",
@@ -41,6 +52,7 @@
     "save": "Save",
     "loading": "Loading...",
     "error": "An error occurred",
-    "success": "Success"
+    "success": "Success",
+    "more_files": "+{{count}} more files"
   }
 }

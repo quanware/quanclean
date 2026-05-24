@@ -16,6 +16,10 @@
     "scanning": "扫描中...",
     "complete": "扫描完成",
     "found": "发现 {{size}} 可清理文件",
+    "idle": "点击「开始扫描」分析磁盘。",
+    "tidy": "无需清理 — 磁盘状态良好！",
+    "files": "个文件",
+    "all": "全部",
     "categories": {
       "temp": "临时文件",
       "cache": "应用缓存",
@@ -31,7 +35,14 @@
     "complete": "清理完成",
     "freed": "已释放 {{size}} 磁盘空间",
     "cancel": "取消",
-    "proceed": "立即清理"
+    "proceed": "立即清理",
+    "errors": "{{count}} 个错误"
+  },
+  "settings": {
+    "language": "语言",
+    "about": "关于",
+    "version": "版本 {{version}}",
+    "license": "MIT 许可证 · 开源软件"
   },
   "common": {
     "yes": "是",
@@ -41,6 +52,7 @@
     "save": "保存",
     "loading": "加载中...",
     "error": "发生错误",
-    "success": "成功"
+    "success": "成功",
+    "more_files": "还有 {{count}} 个文件"
   }
 }

@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import type { Page } from "../App";
+import i18n from "../i18n";
 import styles from "./Sidebar.module.css";
 
 interface SidebarProps {
@@ -13,8 +14,14 @@ const NAV_ITEMS: { id: Page; icon: string }[] = [
   { id: "settings", icon: "⚙" },
 ];
 
+const LANGUAGES = [
+  { code: "en", label: "EN" },
+  { code: "zh-CN", label: "中文" },
+];
+
 export default function Sidebar({ currentPage, onNavigate }: SidebarProps) {
-  const { t } = useTranslation();
+  const { t, i18n: i18nHook } = useTranslation();
+  const currentLang = i18nHook.language;
 
   return (
     <nav className={styles.sidebar}>
@@ -38,7 +45,18 @@ export default function Sidebar({ currentPage, onNavigate }: SidebarProps) {
       </ul>
 
       <div className={styles.footer}>
-        <span className={styles.version}>v0.1.0</span>
+        <div className={styles.langSwitch}>
+          {LANGUAGES.map(({ code, label }) => (
+            <button
+              key={code}
+              className={`${styles.langBtn} ${currentLang === code || (code === "zh-CN" && currentLang.startsWith("zh")) ? styles.langActive : ""}`}
+              onClick={() => i18n.changeLanguage(code)}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+        <span className={styles.version}>v0.2.0</span>
       </div>
     </nav>
   );
