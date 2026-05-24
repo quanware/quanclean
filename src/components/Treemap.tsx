@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { Treemap as RechartTreemap, ResponsiveContainer } from "recharts";
 import type { ScanResult, ScanCategory } from "../lib/types";
 import { formatBytes } from "../lib/format";
@@ -10,14 +11,6 @@ const CATEGORY_COLORS: Record<ScanCategory, string> = {
   logs: "var(--color-logs)",
   duplicates: "var(--color-duplicates)",
   residue: "var(--color-residue)",
-};
-
-const CATEGORY_LABELS: Record<ScanCategory, string> = {
-  temp: "Temp",
-  cache: "Cache",
-  logs: "Logs",
-  duplicates: "Duplicates",
-  residue: "Residue",
 };
 
 interface TreemapProps {
@@ -32,9 +25,8 @@ interface CustomContentProps {
   height?: number;
   name?: string;
   value?: number;
-  root?: boolean;
   depth?: number;
-  colors?: Record<string, string>;
+  label?: (cat: ScanCategory) => string;
 }
 
 function CustomContent({
@@ -45,6 +37,7 @@ function CustomContent({
   name = "",
   value = 0,
   depth = 0,
+  label,
 }: CustomContentProps) {
   if (depth === 0 || width < 10 || height < 10) return null;
   const cat = name as ScanCategory;
@@ -73,7 +66,7 @@ function CustomContent({
             fontSize={13}
             fontWeight={600}
           >
-            {CATEGORY_LABELS[cat] ?? name}
+            {label ? label(cat) : name}
           </text>
           <text
             x={x + width / 2}
@@ -91,6 +84,9 @@ function CustomContent({
 }
 
 export default function Treemap({ result, onCategoryClick }: TreemapProps) {
+  const { t } = useTranslation();
+  const label = (cat: ScanCategory) => t(`scan.categories.${cat}`);
+
   const data = useMemo(() => {
     const categories = new Map<ScanCategory, number>();
     for (const entry of result.entries) {
@@ -111,7 +107,7 @@ export default function Treemap({ result, onCategoryClick }: TreemapProps) {
           data={data}
           dataKey="size"
           nameKey="name"
-          content={<CustomContent />}
+          content={<CustomContent label={label} />}
           onClick={(item) => {
             if (item && item.name) {
               onCategoryClick(item.name as ScanCategory);
@@ -130,7 +126,7 @@ export default function Treemap({ result, onCategoryClick }: TreemapProps) {
               className={styles.legendDot}
               style={{ background: CATEGORY_COLORS[name as ScanCategory] }}
             />
-            <span className={styles.legendName}>{CATEGORY_LABELS[name as ScanCategory] ?? name}</span>
+            <span className={styles.legendName}>{label(name as ScanCategory)}</span>
             <span className={styles.legendSize}>{formatBytes(size)}</span>
           </button>
         ))}
